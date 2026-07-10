@@ -14,12 +14,12 @@ export function CatsSection() {
       </div>
       <div className="cats-layout">
         <div className="cats-portrait">
-          <img src={asset('images/gatos-residentes.webp')} alt={`Retrato de ${active.name}, gato residente da Neko no Ma`} style={{ objectPosition: active.imagePosition }} loading="lazy" width="900" height="650" />
+          <img src={asset('images/gatos-residentes.webp')} alt={`Retrato de corpo inteiro de ${active.name}, gato residente da Neko no Ma`} style={{ objectPosition: active.imagePosition }} loading="lazy" width="1920" height="960" />
           <div className="portrait-caption"><span>Agora você conhece</span><strong>{active.name}</strong></div>
         </div>
         <div className="cats-content">
           <div className="cat-tabs" role="tablist" aria-label="Gatos residentes">
-            {cats.map((cat) => <button key={cat.id} role="tab" aria-selected={cat.id === active.id} aria-controls="cat-profile" onClick={() => setActiveId(cat.id)} className={cat.id === active.id ? 'is-active' : ''}><span>{cat.name}</span><small>{cat.personality}</small></button>)}
+            {cats.map((cat) => <button key={cat.id} role="tab" aria-label={`${cat.name}: ${cat.personality}`} aria-selected={cat.id === active.id} aria-controls="cat-profile" onClick={() => setActiveId(cat.id)} className={cat.id === active.id ? 'is-active' : ''}><span>{cat.name}</span><small>{cat.personality}</small></button>)}
           </div>
           <article id="cat-profile" role="tabpanel" className="cat-profile" key={active.id}>
             <div className="cat-profile__header"><div><span className="eyebrow">{active.age}</span><h3>{active.name}</h3></div><span className={`status-pill ${active.status.includes('adoção') ? 'status-pill--adoption' : ''}`}>{active.status}</span></div>

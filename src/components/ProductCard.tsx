@@ -8,7 +8,7 @@ export function ProductCard({ product }: { product: Product }) {
   const { favorites, toggleFavorite, addToCart } = useStore();
   const favorite = favorites.includes(product.id);
   return (
-    <article className="product-card reveal-card">
+    <article className="product-card">
       <div className="product-card__image">
         <img src={asset('images/menu-still-life.webp')} style={{ objectPosition: product.imagePosition }} alt={`Apresentação editorial de ${product.name}`} loading="lazy" width="600" height="600" />
         {product.featured && <span className="product-badge">Escolha da casa</span>}

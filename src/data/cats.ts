@@ -6,7 +6,7 @@ export const cats: ResidentCat[] = [
     story: 'Chegou por meio de uma protetora do bairro e escolheu a estante de livros como seu primeiro território seguro.',
     habits: 'Inspeciona a abertura da casa e dorme onde a luz desenha quadrados no chão.',
     preferences: 'Aprecia companhia silenciosa e carinhos apenas quando se aproxima primeiro.',
-    status: 'Residente permanente', imagePosition: '12% center',
+    status: 'Residente permanente', imagePosition: '0% center',
   },
   {
     id: 'mugi', name: 'Mugi', age: '7 anos', personality: 'Gentil e sociável',
@@ -20,6 +20,6 @@ export const cats: ResidentCat[] = [
     story: 'Resgatada ainda filhote, cresceu com acompanhamento comportamental e ganhou confiança no próprio ritmo.',
     habits: 'Segue brinquedos de tecido e observa o preparo do chá do alto de uma passarela exclusiva.',
     preferences: 'Prefere brincadeiras com distância; colo e contenção nunca são permitidos.',
-    status: 'Em adoção responsável', imagePosition: '88% center',
+    status: 'Em adoção responsável', imagePosition: '100% center',
   },
 ];

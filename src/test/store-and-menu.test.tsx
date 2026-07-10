@@ -25,4 +25,19 @@ describe('cardápio e carrinho', () => {
     expect(screen.getByRole('heading', { name: 'Mochi Kurogoma' })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'Espresso Kuro' })).not.toBeInTheDocument();
   });
+
+  it('troca de categoria e revela mais produtos dinamicamente', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<StoreProvider><MenuSection /></StoreProvider>);
+
+    await user.click(screen.getByRole('button', { name: 'Chás e matchas' }));
+    expect(screen.getByRole('heading', { name: 'Matcha Neblina' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Hojicha Ninho' })).toBeInTheDocument();
+    expect(container.querySelectorAll('.product-card')).toHaveLength(3);
+    expect(container.querySelector('.product-card.reveal-card')).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Todos' }));
+    await user.click(screen.getByRole('button', { name: 'Ver mais criações' }));
+    expect(container.querySelectorAll('.product-card')).toHaveLength(12);
+  });
 });
