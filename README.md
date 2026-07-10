@@ -2,6 +2,8 @@
 
 Site demonstrativo completo para uma cafeteria fictícia com atmosfera japonesa contemporânea e convivência respeitosa com gatos. O projeto foi criado do zero, com identidade visual, conteúdo em português, imagens originais e interações funcionais.
 
+Site publicado: https://lzbovani.github.io/site-sol/
+
 ## Executar localmente
 
 Requisitos: Node.js 20 ou superior.
@@ -21,6 +23,8 @@ npm run test
 npm run build
 npm run preview
 ```
+
+Todo push na branch `main` executa o workflow `.github/workflows/deploy-pages.yml`, compila a aplicação e publica exclusivamente o conteúdo de `dist/` no GitHub Pages.
 
 ## Tecnologias
 

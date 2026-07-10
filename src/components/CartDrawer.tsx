@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useStore } from '../context/StoreContext';
 import { formatPrice, products } from '../data/menu';
 import { CartIcon, CheckIcon, CloseIcon, MinusIcon, PlusIcon, TrashIcon } from './Icons';
+import { asset } from '../utils/assets';
 
 export function CartDrawer() {
   const { cart, cartOpen, setCartOpen, updateQuantity, removeFromCart, clearCart, notify } = useStore();
@@ -66,7 +67,7 @@ export function CartDrawer() {
             <div className="cart-items">
               {items.map(({ product, quantity }) => (
                 <article className="cart-item" key={product.id}>
-                  <img src="/images/menu-still-life.webp" style={{ objectPosition: product.imagePosition }} alt="" width="96" height="96" />
+                  <img src={asset('images/menu-still-life.webp')} style={{ objectPosition: product.imagePosition }} alt="" width="96" height="96" />
                   <div className="cart-item__info"><h3>{product.name}</h3><span>{formatPrice(product.price)}</span>
                     <div className="quantity-control" aria-label={`Quantidade de ${product.name}`}>
                       <button onClick={() => updateQuantity(product.id, quantity - 1)} aria-label="Diminuir quantidade"><MinusIcon /></button>

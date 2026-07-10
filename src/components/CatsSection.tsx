@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { cats } from '../data/cats';
 import { ArrowIcon } from './Icons';
+import { asset } from '../utils/assets';
 
 export function CatsSection() {
   const [activeId, setActiveId] = useState(cats[0].id);
@@ -13,7 +14,7 @@ export function CatsSection() {
       </div>
       <div className="cats-layout">
         <div className="cats-portrait">
-          <img src="/images/gatos-residentes.webp" alt={`Retrato de ${active.name}, gato residente da Neko no Ma`} style={{ objectPosition: active.imagePosition }} loading="lazy" width="900" height="650" />
+          <img src={asset('images/gatos-residentes.webp')} alt={`Retrato de ${active.name}, gato residente da Neko no Ma`} style={{ objectPosition: active.imagePosition }} loading="lazy" width="900" height="650" />
           <div className="portrait-caption"><span>Agora você conhece</span><strong>{active.name}</strong></div>
         </div>
         <div className="cats-content">

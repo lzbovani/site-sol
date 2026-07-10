@@ -2,6 +2,7 @@ import type { Product } from '../types';
 import { formatPrice } from '../data/menu';
 import { useStore } from '../context/StoreContext';
 import { HeartIcon, LeafIcon, PlusIcon } from './Icons';
+import { asset } from '../utils/assets';
 
 export function ProductCard({ product }: { product: Product }) {
   const { favorites, toggleFavorite, addToCart } = useStore();
@@ -9,7 +10,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="product-card reveal-card">
       <div className="product-card__image">
-        <img src="/images/menu-still-life.webp" style={{ objectPosition: product.imagePosition }} alt={`Apresentação editorial de ${product.name}`} loading="lazy" width="600" height="600" />
+        <img src={asset('images/menu-still-life.webp')} style={{ objectPosition: product.imagePosition }} alt={`Apresentação editorial de ${product.name}`} loading="lazy" width="600" height="600" />
         {product.featured && <span className="product-badge">Escolha da casa</span>}
         <button className={`favorite-button ${favorite ? 'is-favorite' : ''}`} onClick={() => toggleFavorite(product.id)} aria-pressed={favorite} aria-label={favorite ? `Remover ${product.name} dos favoritos` : `Favoritar ${product.name}`}>
           <HeartIcon filled={favorite} />

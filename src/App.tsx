@@ -10,6 +10,7 @@ import { ArrowIcon, CheckIcon, LeafIcon } from './components/Icons';
 import { Logo } from './components/Logo';
 import { formatPrice, products } from './data/menu';
 import { useStore } from './context/StoreContext';
+import { asset } from './utils/assets';
 import './styles.css';
 
 const pillars = [
@@ -38,7 +39,7 @@ export default function App() {
       <Header />
       <main id="conteudo">
         <section id="inicio" className="hero" aria-labelledby="hero-title">
-          <img className="hero__image" src="/images/hero-cafe.webp" alt="Interior acolhedor da cafeteria Neko no Ma com madeira, luminárias de papel, jardim e um gato descansando" width="1920" height="1280" fetchPriority="high" />
+          <img className="hero__image" src={asset('images/hero-cafe.webp')} alt="Interior acolhedor da cafeteria Neko no Ma com madeira, luminárias de papel, jardim e um gato descansando" width="1920" height="1280" fetchPriority="high" />
           <div className="hero__veil" />
           <div className="hero__content">
             <span className="hero-kicker"><i aria-hidden="true" /> Cafés, chás e encontros tranquilos</span>
@@ -59,14 +60,14 @@ export default function App() {
         <section className="section featured-section" aria-labelledby="featured-title">
           <div className="section-heading section-heading--split"><div><span className="eyebrow">Da casa</span><h2 id="featured-title">Três começos possíveis.</h2></div><a className="inline-link" href="#cardapio">Ver cardápio completo <ArrowIcon /></a></div>
           <div className="featured-grid">
-            {featured.map((product, index) => <article className="featured-card reveal-card" key={product.id}><div className="featured-card__image"><img src="/images/menu-still-life.webp" alt={`Apresentação de ${product.name}`} style={{ objectPosition: product.imagePosition }} loading="lazy" width="600" height="650" /><span>0{index + 1}</span></div><div><span className="eyebrow">{product.category}</span><h3>{product.name}</h3><p>{product.description}</p><footer><strong>{formatPrice(product.price)}</strong><button onClick={() => addToCart(product.id)}>Adicionar <ArrowIcon /><span className="sr-only"> {product.name} ao carrinho</span></button></footer></div></article>)}
+            {featured.map((product, index) => <article className="featured-card reveal-card" key={product.id}><div className="featured-card__image"><img src={asset('images/menu-still-life.webp')} alt={`Apresentação de ${product.name}`} style={{ objectPosition: product.imagePosition }} loading="lazy" width="600" height="650" /><span>0{index + 1}</span></div><div><span className="eyebrow">{product.category}</span><h3>{product.name}</h3><p>{product.description}</p><footer><strong>{formatPrice(product.price)}</strong><button onClick={() => addToCart(product.id)}>Adicionar <ArrowIcon /><span className="sr-only"> {product.name} ao carrinho</span></button></footer></div></article>)}
           </div>
         </section>
 
         <MenuSection />
 
         <section id="experiencia" className="experience-section" aria-labelledby="experience-title">
-          <div className="experience-visual reveal"><img src="/images/ritual-jardim.webp" alt="Cerâmicas artesanais e utensílios de chá diante de um jardim interno em dia de chuva" loading="lazy" width="900" height="1200" /><span className="vertical-note">madeira · papel · cerâmica · tempo</span></div>
+          <div className="experience-visual reveal"><img src={asset('images/ritual-jardim.webp')} alt="Cerâmicas artesanais e utensílios de chá diante de um jardim interno em dia de chuva" loading="lazy" width="900" height="1200" /><span className="vertical-note">madeira · papel · cerâmica · tempo</span></div>
           <div className="experience-content"><span className="eyebrow">A experiência Neko no Ma</span><h2 id="experience-title">Cada detalhe reduz um pouco o volume do mundo.</h2><p className="lead">Do som da água ao toque irregular das xícaras, a casa foi desenhada para a atenção voltar ao presente.</p><div className="pillar-list">{pillars.map((pillar) => <article key={pillar.number} className="reveal"><span>{pillar.number}</span><div><h3>{pillar.title}</h3><p>{pillar.text}</p></div></article>)}</div><a className="button button--cream" href="#reservas">Quero viver essa pausa <ArrowIcon /></a></div>
         </section>
 
@@ -75,9 +76,9 @@ export default function App() {
         <section className="section gallery-section" aria-labelledby="gallery-title">
           <div className="section-heading section-heading--split"><div><span className="eyebrow">Cantos da casa</span><h2 id="gallery-title">Uma atmosfera que se revela devagar.</h2></div><p>Imagens originais criadas para esta demonstração, unidas pela mesma luz, matéria e silêncio.</p></div>
           <div className="gallery-grid">
-            <figure className="gallery-a reveal"><img src="/images/hero-cafe.webp" alt="Luminária de papel e banco de madeira no salão" loading="lazy" /><figcaption>Salão principal · luz de fim de tarde</figcaption></figure>
-            <figure className="gallery-b reveal"><img src="/images/menu-still-life.webp" alt="Bebidas e doces artesanais sobre papel e madeira" loading="lazy" /><figcaption>Rituais servidos em cerâmica</figcaption></figure>
-            <figure className="gallery-c reveal"><img src="/images/ritual-jardim.webp" alt="Utensílios de chá junto ao jardim chuvoso" loading="lazy" /><figcaption>Jardim interno · dias de chuva</figcaption></figure>
+            <figure className="gallery-a reveal"><img src={asset('images/hero-cafe.webp')} alt="Luminária de papel e banco de madeira no salão" loading="lazy" /><figcaption>Salão principal · luz de fim de tarde</figcaption></figure>
+            <figure className="gallery-b reveal"><img src={asset('images/menu-still-life.webp')} alt="Bebidas e doces artesanais sobre papel e madeira" loading="lazy" /><figcaption>Rituais servidos em cerâmica</figcaption></figure>
+            <figure className="gallery-c reveal"><img src={asset('images/ritual-jardim.webp')} alt="Utensílios de chá junto ao jardim chuvoso" loading="lazy" /><figcaption>Jardim interno · dias de chuva</figcaption></figure>
           </div>
         </section>
 
